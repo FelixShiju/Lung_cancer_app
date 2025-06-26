@@ -12,11 +12,17 @@ MODEL_PATH = r"lungcancer_model.sav"
 loaded_model = pickle.load(open(MODEL_PATH, "rb"))
 
 
-def lungcancer_prediction(features: list) -> str:
-    pred = loaded_model.predict(np.asarray(features).reshape(1, -1))[0]
-    return "Survived ✅" if pred == 1 else "Not Survived ❌"
+def lungcancer_prediction(input_data):
+    input_data_as_numpy_array = np.asarray(input_data)
+    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+    prediction = loaded_model.predict(input_data_reshaped)
+    print(prediction)
 
-
+    if (prediction[0]==0):
+        return "Survived ✅"
+    else:
+        return "Not Survived ❌"
+   
 def main():
     st.set_page_config(page_title="🫁 Lung-Cancer Predictor", page_icon="🫁")
     st.title("🫁 Lung-Cancer Survival Predictor")
