@@ -20,7 +20,7 @@ def lungcancer_prediction(features: list) -> str:
 def main():
     st.set_page_config(page_title="🫁 Lung-Cancer Predictor", page_icon="🫁")
     st.title("🫁 Lung-Cancer Survival Predictor")
-    st.markdown("Estimate a patient’s **5-year survival outcome** based on clinical and lifestyle factors.")
+    st.markdown("Estimate a patient’s **survival outcome** based on clinical and lifestyle factors.")
     st.write("---")
 
    
